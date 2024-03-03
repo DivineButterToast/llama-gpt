@@ -88,6 +88,7 @@ case $model in
 esac
 
 # Run docker compose with docker-compose-ggml.yml or docker-compose-gguf.yml
+# changed command to docker-compose
 
 if [ "$with_cuda" -eq 1 ]
 then
@@ -100,8 +101,8 @@ then
 else
     if [ "$model_type" = "ggml" ]
     then
-        docker compose -f docker-compose.yml up --build
+        docker-compose -f docker-compose.yml up --build
     else
-        docker compose -f docker-compose-gguf.yml up --build
+        docker-compose -f docker-compose-gguf.yml up --build
     fi
 fi
